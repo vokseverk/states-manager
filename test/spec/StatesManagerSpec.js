@@ -1,29 +1,32 @@
 import StatesManager from '../../src/states-manager.js'
 
 describe('StatesManager', function() {
-	fit('can be initialized with a CSS selector', () => {
-		const mngr = new StatesManager('.menubar')
+	it('can be initialized with a CSS selector', () => {
+		const mngr = new StatesManager('#menubarSimple')
 		
-		expect(mngr.element).toBeDefined()
+		expect(mngr.element.id).toBe('menubarSimple')
 	})
 	
-	it('can be initialized wuith a DOM element', () => {
+	it('can be initialized with a DOM element', () => {
+		const testNode = document.querySelector('#menubarSimple')
+		const mngr = new StatesManager(testNode)
 		
+		expect(mngr.element.id).toBe('menubarSimple')
 	})
 	
-	it('detects an existing state on the DOM element', () => {
-		
-	})
-	
-	it('detects any existing modifiers set with a data-modifiers attribute', () => {
-		
-	})
-	
-	it('detects any existing modifiers set with CSS classes', () => {
+	xit('detects an existing state on the DOM element', () => {
 		
 	})
 	
-	describe('setState', () => {
+	xit('detects any existing modifiers set with a data-modifiers attribute', () => {
+		
+	})
+	
+	xit('detects any existing modifiers set with CSS classes', () => {
+		
+	})
+	
+	xdescribe('setState', () => {
 		it('can set state by index', () => {
 			
 		})
