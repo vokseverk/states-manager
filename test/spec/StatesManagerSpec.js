@@ -14,8 +14,22 @@ describe('StatesManager', function() {
 		expect(mngr.element.id).toBe('menubarSimple')
 	})
 	
-	xit('detects an existing state on the DOM element', () => {
+	it('accepts an options object with a states array when initialized', () => {
+		const mngr = new StatesManager('#menubarSimple', {
+			states: ['compact', 'regular']
+		})
 		
+		expect(mngr.states).toEqual(['compact', 'regular'])
+	});
+	
+	it('detects an existing state on the DOM element', () => {
+		const testNode = document.querySelector('#menubarWithState')
+		
+		const mngr = new StatesManager(testNode, {
+			states: ['compact', 'regular']
+		})
+		
+		expect(mngr.currentState).toBe('compact')
 	})
 	
 	xit('detects any existing modifiers set with a data-modifiers attribute', () => {
